@@ -124,7 +124,11 @@
       <h4 class="subtitle has-text-centered">
         <div class="content has-text-justified"> 
           <p>
-            Page under construction...
+            Two qualitative examples showcasing DepthLight’s capability to generate spatial-aware lighting effects from a single LDR and
+LFOV image. We integrated two 3D rabbits, half diffuse and half specular, in each input image, taken from the [GSH*19] dataset. DepthLight
+reconstructs an entire emissive texture mesh of the scene that re-casts spatialized lighting on virtual objects and enables seamless integration
+of synthetic objects in real images, whatever their location in the scene. This approach enables photorealistic relighting of objects, capturing
+intricate lighting variations and occlusion effects that traditional environment map representations fail to achieve.
           <p>
           
           </p>
@@ -177,7 +181,8 @@
         <h2 class="title is-3">Pipeline</h2>
         <div class="content has-text-justified">
           <p>
-            Our pipeline.
+            Overview of our DepthLight pipeline. Blue dashed lines represent the possible input points of our pipeline. Our testing involved
+the whole pipeline using LDR LFOV input images. Numbers 3.2, 3.3, 3.4, 3.5 and 3.6 refer to dedicated sections in the article.
           </p>
         </div>
         <div class="image-area">
