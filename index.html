@@ -144,24 +144,26 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            We present DepthLight, a novel method to represent estimated spatial lighting for photorealistic Visual Effects (VFX). Previous
-            approaches either relied on environment maps that fail to take into account localized lighting effects or used simplified 3D
-            representations of lights that do not fully capture the complexity of the lighting process.
+          We present DepthLight, a method to estimate spatial lighting for photorealistic Visual Effects (VFX) using a single image as
+          input. Previous techniques rely either on estimated or captured light representations that fail to account for localized lighting
+          effects, or use simplified lights that do not fully capture the complexity of the illumination process. 
           </p>
           <p>
-            DepthLight addresses these limitations
-            by using a single LDR image with a limited field of view (LFOV) to build an emissive texture mesh, producing a simple and
-            lightweight 3D representation for photorealistic object relighting. Our approach includes a two-step HDR environment map
-            estimation process. First, an LDR panorama is generated using a photorealistic generative model. Then, an LDR to HDR
-            network reconstructs the HDR panorama. The photorealistic LDR panorama enables depth estimation, allowing for a mesh
-            representation which enables spatial lighting information. This flexible pipeline can be easily integrated into different VFX
-            production workflows. 
+          DepthLight addresses these
+          limitations by using a single LDR image with a limited field of view (LFOV) as an input to compute an emissive texture mesh
+          around the image (a mesh which generates spatial lighting in the scene), producing a simple and lightweight 3D representation for photorealistic object relighting. First, an LDR panorama is generated around the input image using a photorealistic
+          diffusion-based inpainting technique, conditioned on the input image. An LDR to HDR network then reconstructs the full HDR
+          panorama, while an off-the-shelf depth estimation technique generates a mesh representation to finally build a 3D emissive
+          mesh. This emissive mesh approximates the bidirectional light interactions between the scene and the virtual objects that is
+          used to relight virtual objects placed in the scene. We also exploit this mesh to cast shadows from the virtual objects on the
+          emissive mesh, and add these shadows to the original LDR image. This flexible pipeline can be easily integrated into different
+          VFX production workflows. 
           </p>
           <p>
-            In our experiments, DepthLight shows that virtual objects are seamlessly integrated into real scenes with
-            an accurate simuation of the lighting. We compared our results to the ground truth lighting using Unreal Engine 5, as well as
-            to regular approaches that uses pure HDRI lighting techniques. Finally, we have additionally validated our approach using
-            image quality assessment metrics.
+          In our experiments, DepthLight shows that virtual objects are seamlessly integrated into real scenes
+          with a visually plausible estimation of the lighting. We compared our results to the ground truth lighting using Unreal Engine, as
+          well as to state-of-the-art approaches that use pure HDRi lighting techniques. Finally, we validated our approach
+          conducting a user evaluation over 52 participants as well as a comparison to existing techniques.
           </p>
         </div>
       </div>
@@ -191,6 +193,12 @@
   <div class="container is-max-desktop content">
     <h2 class="title">Citation</h2>
     <pre><code>
+      @article{manus2025depthlight,
+        title={DepthLight: a Single Image Lighting Pipeline for Seamless Integration of Virtual Objects into Real Scenes},
+        author={Manus, Raphael and Christie, Marc and Boivin, Samuel and Guehl, Pascal},
+        year={2025},
+        publisher={The Eurographics Association}
+      }
     </code></pre>
   </div>
 </section>
